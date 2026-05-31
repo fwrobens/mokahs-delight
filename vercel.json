@@ -2,5 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": null
+  "framework": null,
+  "builds": [
+    {
+      "src": "dist/server/index.mjs",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs24.x"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server/index.mjs"
+    }
+  ]
 }
