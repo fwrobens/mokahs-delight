@@ -251,7 +251,7 @@ function Menu() {
         <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
           <div>
             <p className="text-[12px] uppercase tracking-[0.22em] text-ember mb-4">The menu</p>
-            <h2 className="font-serif text-6xl md:text-7xl leading-[0.9] text-balance">
+            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.9] text-balance">
               Two halves of <br/> the same table.
             </h2>
           </div>
@@ -291,11 +291,11 @@ function MenuColumn({
            className="w-full aspect-[4/5] object-cover mb-8" />
       <ul className="divide-y divide-cream/15">
         {items.map((it) => (
-          <li key={it.name} className="py-4 flex items-baseline gap-4">
-            <span className="font-serif text-2xl text-cream">{it.name}</span>
-            <span className="flex-1 border-b border-dotted border-cream/25 translate-y-[-4px]" />
-            <span className="font-serif text-2xl text-ember">${it.price}</span>
-            <span className="hidden md:block basis-full text-sm text-cream/60 italic mt-1">{it.note}</span>
+          <li key={it.name} className="py-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-serif text-xl sm:text-2xl text-cream">{it.name}</span>
+            <span className="flex-1 border-b border-dotted border-cream/25 translate-y-[-4px] min-w-4" />
+            <span className="font-serif text-xl sm:text-2xl text-ember">${it.price}</span>
+            <span className="basis-full text-sm text-cream/60 italic">{it.note}</span>
           </li>
         ))}
       </ul>
