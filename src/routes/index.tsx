@@ -114,9 +114,9 @@ function Nav() {
         </nav>
         <a
           href="tel:+13056978809"
-          className="text-[12px] uppercase tracking-[0.18em] px-4 py-2 border border-espresso text-espresso hover:bg-espresso hover:text-cream transition"
+          className="text-[11px] md:text-[12px] uppercase tracking-[0.15em] md:tracking-[0.18em] px-3 md:px-4 py-2 border border-espresso text-espresso hover:bg-espresso hover:text-cream transition whitespace-nowrap"
         >
-          Order pickup
+          Order <span className="hidden sm:inline">pickup</span>
         </a>
       </div>
     </header>
@@ -132,7 +132,7 @@ function Hero() {
             <span className="h-px w-10 bg-clay" />
             Wynwood · Miami
           </div>
-          <h1 className="font-serif text-[14vw] md:text-[10.5rem] leading-[0.88] mt-6 text-espresso text-balance">
+          <h1 className="font-serif text-[16vw] md:text-[10.5rem] leading-[0.9] md:leading-[0.88] mt-6 text-espresso text-balance">
             East <em className="text-clay not-italic font-serif">×</em> West,<br />
             <span className="italic text-clay/90">poured slow.</span>
           </h1>
