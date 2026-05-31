@@ -11,12 +11,19 @@ function createRequest(req: VercelRequest): Request {
   return new Request(url.toString(), {
     method: req.method,
     headers: req.headers as HeadersInit,
-    body: req.method === "GET" || req.method === "HEAD" ? undefined : req,
+    body:
+      req.method === "GET" || req.method === "HEAD"
+        ? undefined
+        : (req as unknown as BodyInit),
   });
 }
 
 async function sendResponse(res: VercelResponse, response: Response) {
-  res.status(response.status);
+  if (typeof (res as any).status === "function") {
+    (res as any).status(response.status);
+  } else {
+    res.statusCode = response.status;
+  }
 
   response.headers.forEach((value, name) => {
     res.setHeader(name, value);
@@ -36,11 +43,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const entry = serverModule.default ?? serverModule;
 
   if (!entry || typeof entry.fetch !== "function") {
-    res.status(500).send("Server entry is not available");
+    if (typeof (res as any).status === "function" && typeof (res as any).send === "function") {
+      (res as any).status(500).send("Server entry is not available");
+    } else {
+      res.statusCode = 500;
+      res.end("Server entry is not available");
+    }
     return;
   }
 
   const request = createRequest(req);
-  const response = await entry.fetch(request);
+  const fetchFn = (entry as { fetch?: (request: Request) => Promise<Response> })
+    .fetch;
+  if (!fetchFn) {
+    if (typeof (res as any).status === "function" && typeof (res as any).send === "function") {
+      (res as any).status(500).send("Server entry is not available");
+    } else {
+      res.statusCode = 500;
+      res.end("Server entry is not available");
+    }
+    return;
+  }
+
+  const response = await fetchFn(request);
   await sendResponse(res, response);
 }
