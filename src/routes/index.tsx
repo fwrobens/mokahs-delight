@@ -324,7 +324,7 @@ function Reviews() {
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
           <div>
             <p className="text-[12px] uppercase tracking-[0.22em] text-clay mb-4">Loved in Wynwood</p>
-            <h2 className="font-serif text-6xl md:text-7xl text-espresso leading-[0.9]">
+            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-espresso leading-[0.9]">
               5.0 on Google,<br/>
               <em className="text-clay">earnestly.</em>
             </h2>
@@ -356,13 +356,13 @@ function Reviews() {
 function Visit() {
   return (
     <section id="visit" className="py-28 md:py-40 bg-clay text-cream relative overflow-hidden">
-      <div className="absolute -top-32 -right-20 font-cjk text-[28rem] leading-none text-cream/5 select-none">
+      <div className="absolute -top-32 -right-20 font-cjk text-[18rem] md:text-[28rem] leading-none text-cream/5 select-none pointer-events-none">
         摩
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 relative">
         <div className="md:col-span-7">
           <p className="text-[12px] uppercase tracking-[0.22em] text-cream/70 mb-6">Visit</p>
-          <h2 className="font-serif text-6xl md:text-8xl leading-[0.88] text-balance">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-8xl leading-[0.88] text-balance">
             Come slow down<br/>on 29th.
           </h2>
           <p className="mt-8 text-cream/85 text-lg max-w-md">
