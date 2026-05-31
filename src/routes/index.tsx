@@ -114,9 +114,9 @@ function Nav() {
         </nav>
         <a
           href="tel:+13056978809"
-          className="text-[12px] uppercase tracking-[0.18em] px-4 py-2 border border-espresso text-espresso hover:bg-espresso hover:text-cream transition"
+          className="text-[11px] md:text-[12px] uppercase tracking-[0.15em] md:tracking-[0.18em] px-3 md:px-4 py-2 border border-espresso text-espresso hover:bg-espresso hover:text-cream transition whitespace-nowrap"
         >
-          Order pickup
+          Order <span className="hidden sm:inline">pickup</span>
         </a>
       </div>
     </header>
@@ -132,7 +132,7 @@ function Hero() {
             <span className="h-px w-10 bg-clay" />
             Wynwood · Miami
           </div>
-          <h1 className="font-serif text-[14vw] md:text-[10.5rem] leading-[0.88] mt-6 text-espresso text-balance">
+          <h1 className="font-serif text-[16vw] md:text-[10.5rem] leading-[0.9] md:leading-[0.88] mt-6 text-espresso text-balance">
             East <em className="text-clay not-italic font-serif">×</em> West,<br />
             <span className="italic text-clay/90">poured slow.</span>
           </h1>
@@ -251,7 +251,7 @@ function Menu() {
         <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
           <div>
             <p className="text-[12px] uppercase tracking-[0.22em] text-ember mb-4">The menu</p>
-            <h2 className="font-serif text-6xl md:text-7xl leading-[0.9] text-balance">
+            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.9] text-balance">
               Two halves of <br/> the same table.
             </h2>
           </div>
@@ -291,11 +291,11 @@ function MenuColumn({
            className="w-full aspect-[4/5] object-cover mb-8" />
       <ul className="divide-y divide-cream/15">
         {items.map((it) => (
-          <li key={it.name} className="py-4 flex items-baseline gap-4">
-            <span className="font-serif text-2xl text-cream">{it.name}</span>
-            <span className="flex-1 border-b border-dotted border-cream/25 translate-y-[-4px]" />
-            <span className="font-serif text-2xl text-ember">${it.price}</span>
-            <span className="hidden md:block basis-full text-sm text-cream/60 italic mt-1">{it.note}</span>
+          <li key={it.name} className="py-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-serif text-xl sm:text-2xl text-cream">{it.name}</span>
+            <span className="flex-1 border-b border-dotted border-cream/25 translate-y-[-4px] min-w-4" />
+            <span className="font-serif text-xl sm:text-2xl text-ember">${it.price}</span>
+            <span className="basis-full text-sm text-cream/60 italic">{it.note}</span>
           </li>
         ))}
       </ul>
@@ -324,7 +324,7 @@ function Reviews() {
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
           <div>
             <p className="text-[12px] uppercase tracking-[0.22em] text-clay mb-4">Loved in Wynwood</p>
-            <h2 className="font-serif text-6xl md:text-7xl text-espresso leading-[0.9]">
+            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-espresso leading-[0.9]">
               5.0 on Google,<br/>
               <em className="text-clay">earnestly.</em>
             </h2>
@@ -356,13 +356,13 @@ function Reviews() {
 function Visit() {
   return (
     <section id="visit" className="py-28 md:py-40 bg-clay text-cream relative overflow-hidden">
-      <div className="absolute -top-32 -right-20 font-cjk text-[28rem] leading-none text-cream/5 select-none">
+      <div className="absolute -top-32 -right-20 font-cjk text-[18rem] md:text-[28rem] leading-none text-cream/5 select-none pointer-events-none">
         摩
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 relative">
         <div className="md:col-span-7">
           <p className="text-[12px] uppercase tracking-[0.22em] text-cream/70 mb-6">Visit</p>
-          <h2 className="font-serif text-6xl md:text-8xl leading-[0.88] text-balance">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-8xl leading-[0.88] text-balance">
             Come slow down<br/>on 29th.
           </h2>
           <p className="mt-8 text-cream/85 text-lg max-w-md">
