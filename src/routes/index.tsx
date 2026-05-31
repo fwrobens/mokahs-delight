@@ -5,6 +5,9 @@ import coffeeImg from "@/assets/coffee.jpg";
 import crepeImg from "@/assets/crepe.jpg";
 import jianbingImg from "@/assets/jianbing.jpg";
 import interiorImg from "@/assets/interior.jpg";
+import g1 from "@/assets/gallery/g1.jpg";
+import g2 from "@/assets/gallery/g2.jpg";
+import g3 from "@/assets/gallery/g3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,10 +57,45 @@ function Home() {
       <Marquee />
       <Story />
       <Menu />
+      <Gallery />
       <Reviews />
       <Visit />
       <Footer />
     </main>
+  );
+}
+
+function Gallery() {
+  const shots = [
+    { src: g1, alt: "Guests at MŌKAH" },
+    { src: g2, alt: "MŌKAH café exterior in Wynwood" },
+    { src: g3, alt: "Fresh bites from MŌKAH" },
+  ];
+  return (
+    <section className="py-24 md:py-32 bg-cream">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
+          <div>
+            <p className="text-[12px] uppercase tracking-[0.22em] text-clay mb-4">From the corner</p>
+            <h2 className="font-serif text-5xl md:text-7xl text-espresso leading-[0.9]">
+              Snapshots of <em className="text-clay">a soft day.</em>
+            </h2>
+          </div>
+          <a href="https://instagram.com/mokahmiami" target="_blank" rel="noreferrer"
+             className="text-[12px] uppercase tracking-[0.2em] text-espresso underline-offset-4 hover:underline">
+            More on Instagram →
+          </a>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+          {shots.map((s, i) => (
+            <figure key={i} className={`overflow-hidden ${i === 1 ? "md:translate-y-10" : ""}`}>
+              <img src={s.src} alt={s.alt} loading="lazy"
+                   className="w-full aspect-[3/4] object-cover hover:scale-[1.03] transition duration-700" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
